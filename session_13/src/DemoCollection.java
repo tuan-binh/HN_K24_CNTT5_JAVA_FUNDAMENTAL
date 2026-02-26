@@ -30,18 +30,46 @@ public class DemoCollection {
 
 //        danh sách động vật yêu thích theo cân
         List<Animal> myFood = new ArrayList<>();
-        Animal fish = new Animal("Cá", "Cá vàng", true);
+        Animal fish = new Animal("Cá", "Ca vang", true);
         myFood.add(fish);
-        Animal gozila = new Animal("Vượn","Vượn đít đỏ",false);
+        Animal gozila = new Animal("Vượn", "Vuon dit do", false);
         myFood.add(gozila);
+        Animal cat = new Animal("Mèo", "Meo anh long ngan", false);
+        myFood.add(cat);
+        Animal dog = new Animal("Chó", "Cho tay tang", false);
+        myFood.add(dog);
+        Animal pig = new Animal("Lơn", "Lon mang", false);
+        myFood.add(pig);
+
+        for (int i = 0; i < myFood.size(); i++) {
+            for (int j = i + 1; j < myFood.size(); j++) {
+                if (myFood.get(i).getName().compareTo(myFood.get(j).getName()) > 0) {
+                    Animal temp = myFood.get(i);
+                    myFood.set(i, myFood.get(j));
+                    myFood.set(j, temp);
+                }
+            }
+        }
 
         for (int i = 0; i < myFood.size(); i++) {
             System.out.println(myFood.get(i));
         }
 
-        for (Animal e : myFood) {
-            System.out.println(e);
-        }
+        String name = "Cá vàng";
+
+//        for (int i = 0; i < myFood.size(); i++) {
+//            if (myFood.get(i).getName().contains(name)) {
+//                System.out.println(myFood.get(i));
+//            }
+//        }
+//
+//        for (int i = 0; i < myFood.size(); i++) {
+//            System.out.println(myFood.get(i));
+//        }
+//
+//        for (Animal e : myFood) {
+//            System.out.println(e);
+//        }
 
     }
 }
